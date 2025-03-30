@@ -2,10 +2,10 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Item({navItem}) {
-    console.log(navItem);
+export default function NavItem({navItem}) {
+    console.log(navItem)
     return (
-        <li key={navItem.name}>
+        <li key={navItem}>
             <a
                 href={navItem.href}
                 className={classNames(

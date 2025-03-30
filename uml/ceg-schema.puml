@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+entity "league" as league {
+    **league_id: int64 <<generated>> <<PK>>**
+    --
+    name: varchar
+
+}
+
+entity "role" as role {
+    **role_id: int64 <<generated>> <<PK>>**
+    --
+    name: varchar
+}
+
+entity "celebrity" as celebrity {
+    **celebrity_id: int64 <<generated>> <<PK>>**
+    --
+    first_name: varchar
+    last_name: varchar
+    age: int32
+    status: varchar
+    point_worth: int32
+    points_earned: int32
+    editable: boolean
+    **team_id: int64 <<FK>>**
+}
+
+entity "user" as user {
+    **user_id: int64 <<generated>> <<PK>>**
+    --
+    first_name: varchar
+    last_name: varchar
+    email: varchar
+    username: varchar
+    password_hash: varchar
+    **role_id:varchar <<FK>>**
+    avatar:byte[]
+    api_token: varchar
+    **league_id: int64 <<FK>>**
+}
+
+entity "team" as team {
+    **team_id: int32 <<generated>> <<PK>>**
+    --
+    name: varchar
+    point_total: int32
+    rank: int32
+    **user_id: int32 <<FK>>**
+}
+
+league||--|{user
+role||--|{user
+user||--||team
+team||--|{celebrity
+@enduml

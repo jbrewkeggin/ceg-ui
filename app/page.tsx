@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Example from "./ui/example";
+import Main from "./ui/main";
 export default function Home() {
   return (
-  <Example/>
+  <Main/>
 );
 }
