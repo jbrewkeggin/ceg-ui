@@ -1,5 +1,3 @@
-'use client'
-
 import SidebarRoot from "@/app/ui/sidebar-root";
 import ContentRoot from "@/app/ui/content-root";
 

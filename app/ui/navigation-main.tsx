@@ -1,5 +1,3 @@
-'use client'
-
 import Teams from "@/app/ui/teams";
 import NavItems from "@/app/ui/nav-items";
 

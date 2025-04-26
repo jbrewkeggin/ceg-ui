@@ -1,13 +1,16 @@
-import type { NextConfig } from "next";
+import type {NextConfig} from "next";
+
 const nextConfig: NextConfig = {
-    // server : {
-    //     proxy: {
-    //         '/api' : {
-    //             target: 'http://127.0.0.1:1612',
-    //             changeOrigin: true,
-    //         }
-    //     }
-    // },
+
+    async rewrites() {
+        return [
+            {
+                source: '/api/v1/1/teams',
+                destination: 'http://127.0.0.1:1209/api/v1/1/teams',
+            },
+        ]
+    },
+
 };
 
 export default nextConfig;

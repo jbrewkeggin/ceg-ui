@@ -1,4 +1,3 @@
-'use client'
 import TeamItem from "@/app/ui/team-item";
 
 function classNames(...classes) {
@@ -15,7 +14,12 @@ const teams = [
     {id: 3, name: 'SnakeBite', href: '#', initial: 'W', current: false},
 ]
 
-export default function Teams() {
+export default async function Teams() {
+    console.log("Fetch!")
+    const data = await fetch("http://127.0.0.1:3000/api/v1/1/teams")
+
+    const teams = await data.json()
+    console.log(teams)
     return (
         <li>
             <div className="text-xs/6 font-semibold text-gray-400">Your teams</div>

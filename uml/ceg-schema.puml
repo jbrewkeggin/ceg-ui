@@ -5,7 +5,7 @@ entity "league" as league {
     **league_id: int64 <<generated>> <<PK>>**
     --
     name: varchar
-
+    creation_date: Date
 }
 
 entity "role" as role {
@@ -39,6 +39,7 @@ entity "user" as user {
     avatar:byte[]
     api_token: varchar
     **league_id: int64 <<FK>>**
+    creation_date: Date
 }
 
 entity "team" as team {
