@@ -1,15 +1,11 @@
 'use client'
-import {Bars3Icon, BellIcon} from "@heroicons/react/24/outline";
-import {ChevronDownIcon, MagnifyingGlassIcon} from "@heroicons/react/20/solid";
-import {Menu, MenuButton, MenuItems} from "@headlessui/react";
+import {Bars3Icon} from "@heroicons/react/24/outline";
 import {useState} from "react";
-import Search from "@/app/ui/search";
-import Alert from "@/app/ui/alert";
-import Profile from "@/app/ui/profile";
-import Title from "@/app/ui/title";
+import Title from "@/app/title";
 
 export default function HeaderRoot() {
     const [sidebarOpen, setSidebarOpen] = useState(true)
+    console.log(sidebarOpen);
     return (
         /* sticky will keep header relative positioned until parents fall off the screen. Then it's fixed */
         /* shrink if needed */
@@ -34,13 +30,13 @@ export default function HeaderRoot() {
                 <Title/>
                 {/*<Title/>*/}
                 <div className="flex items-center gap-x-4 lg:gap-x-6">
-                    <Alert/>
+                    {/*<Alert/>*/}
 
                     {/* Separator */}
                     <div aria-hidden="true" className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10"/>
 
                     {/* Profile dropdown */}
-                    <Profile/>
+                    {/*<Profile/>*/}
                 </div>
             </div>
         </div>

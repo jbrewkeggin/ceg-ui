@@ -1,9 +1,6 @@
-const people = [
-    {name: 'Gene Hackman', age: '95', status: 'Deceased', worth: '5', earned: '5', role: 'Member'},
-    // More people...
-]
-
-export default function CelebTable() {
+export default function CelebTable(teamInfo: {celebrities: [{first_name: string, last_name: string, age: string, status: string, birthday: string, point_worth: string, points_earned: string}]}) {
+    console.log('CELEB TABLE', teamInfo);
+    const celebs = teamInfo.celebrities;
     return (
         <div className="p-10 m-10">
             <div className="bg-gray-900">
@@ -35,7 +32,11 @@ export default function CelebTable() {
                                             <tr>
                                                 <th scope="col"
                                                     className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-white sm:pl-0">
-                                                    Name
+                                                    First Name
+                                                </th>
+                                                <th scope="col"
+                                                    className="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-white sm:pl-0">
+                                                    Last Name
                                                 </th>
                                                 <th scope="col"
                                                     className="px-3 py-3.5 text-left text-sm font-semibold text-white">
@@ -44,6 +45,10 @@ export default function CelebTable() {
                                                 <th scope="col"
                                                     className="px-3 py-3.5 text-left text-sm font-semibold text-white">
                                                     Death Status
+                                                </th>
+                                                <th scope="col"
+                                                    className="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                                    Birthday
                                                 </th>
                                                 <th scope="col"
                                                     className="px-3 py-3.5 text-left text-sm font-semibold text-white">
@@ -59,18 +64,22 @@ export default function CelebTable() {
                                             </tr>
                                             </thead>
                                             <tbody className="divide-y divide-gray-800">
-                                            {people.map((person) => (
-                                                <tr key={person.name}>
+                                            {celebs.map((celeb) => (
+                                                <tr key={celeb.first_name}>
                                                     <td className="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-white sm:pl-0">
-                                                        {person.name}
+                                                        {celeb.first_name}
                                                     </td>
-                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{person.age}</td>
-                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{person.status}</td>
-                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{person.worth}</td>
-                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{person.earned}</td>
+                                                    <td className="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-white sm:pl-0">
+                                                        {celeb.last_name}
+                                                    </td>
+                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{celeb.age}</td>
+                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{celeb.status}</td>
+                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{celeb.birthday}</td>
+                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{celeb.point_worth}</td>
+                                                    <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-300">{celeb.points_earned}</td>
                                                     <td className="relative py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-0">
                                                         <a href="#" className="text-indigo-400 hover:text-indigo-300">
-                                                            Edit<span className="sr-only">, {person.name}</span>
+                                                            Edit<span className="sr-only">, {celeb.first_name}</span>
                                                         </a>
                                                     </td>
                                                 </tr>

@@ -17,13 +17,6 @@ export const metadata: Metadata = {
   description: "Celebrity End Game App",
 };
 
-// Children prop - any pages will be nested in RootLayout.
-// In this case, it's the single page.tsx, which then imports from /ui/
-// Only page components update, layout won't re-render
-// This is partial rendering, which preserves client-side state in the layout while transitioning between pages
-// We should make Nav and Top bar part of the Layout, and pages should be the middle area
-
-// This is where you would add metadata in html tags
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+      {children}
       </body>
     </html>
   );
