@@ -19,7 +19,8 @@ const navigation = [
     // {name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false},
     // {name: 'Reports', href: '#', icon: ChartPieIcon, current: false},
 ]
-
+// { title }: { title: string }
+// right now it's any[]
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -31,7 +32,7 @@ export default function Dashboard() {
     /** Warning - setting state re-renders a component. **/
     // Effects let you run some code after rendering
     useEffect(() => {
-        fetch('http://127.0.0.1:3000/api/v1/1/teams')
+        fetch('/api/v1/1/teams')
             .then((res) => {
                 return res.json();
             })
@@ -40,7 +41,7 @@ export default function Dashboard() {
             });
     }, []);
     function getTeam(team: string) {
-        const url = 'http://127.0.0.1:3000/api/v1/1/teams/' + team;
+        const url = '/api/v1/1/teams/' + team;
         fetch(url)
             .then((res) => {
                 return res.json();
