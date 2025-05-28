@@ -11,10 +11,14 @@ const nextConfig: NextConfig = {
             {
                 source: '/api/v1/1/teams/:slug(\\d{1,})',
                 destination: 'http://127.0.0.1:1209/api/v1/1/teams/:slug',
+            },
+            {
+                source: '/api/v1/1/leaderboard',
+                destination: 'http://127.0.0.1:1209/api/v1/1/leaderboard',
             }
         ]
     },
-    // output: 'export',
+    //output: 'export',
 
 };
 

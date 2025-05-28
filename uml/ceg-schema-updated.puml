@@ -1,0 +1,78 @@
+@startuml
+!define primaryKey(x) <b>x</b>
+!define foreignKey(x) <i>x</i>
+
+entity User {
+  primaryKey(id): int
+  first_name: string
+  last_name: string
+  email: string
+  username: string
+  password_hash: string
+  role_id: int
+  avatar: byte[]
+  api_token: string
+  score: int
+}
+
+entity Role {
+  primaryKey(id): int
+  name: string
+}
+
+entity League {
+  primaryKey(id): int
+  name: string
+}
+
+entity Team {
+  primaryKey(id): int
+  name: string
+  point_total: int
+  rank: int
+  user_id: int
+  league_id: int
+  year: int
+}
+
+entity Celebrity {
+  primaryKey(id): int
+  first_name: string
+  last_name: string
+  birthday: date
+  age: int
+  status: string
+  point_worth: int
+  points_earned: int
+  editable: bool
+  worth_updated: bool
+  date_of_death: date
+}
+
+entity TeamCelebrity {
+  primaryKey(team_id) : int
+  primaryKey(celebrity_id) : int
+  team_id: int
+  celebrity_id: int
+  created_at: timestamp
+  deleted_at: timestamp
+}
+
+entity ScoreEvent {
+  primaryKey(id): int
+  team_id: int
+  celebrity_id: int
+  points: int
+  reason: string
+  timestamp: timestamp
+}
+
+' Relationships
+User ||--o{ Team : has
+User }o--|| Role : role
+League ||--o{ Team : contains
+Team ||--o{ TeamCelebrity : picks
+Celebrity ||--o{ TeamCelebrity : appears
+Team ||--o{ ScoreEvent : earns
+Celebrity ||--o{ ScoreEvent : scores_from
+@enduml
